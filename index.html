@@ -22,11 +22,67 @@
     </nav>
 
     <main class="max-w-5xl mx-auto px-6 py-20">
-        <div class="text-center">
-            <h1 class="text-5xl font-extrabold text-white mb-6">The Future is <span class="text-blue-500">Self-Evolving.</span></h1>
+        <div class="text-center mb-20">
+            <h1 class="text-5xl font-extrabold text-white mb-6 tracking-tight">The Future is <span class="text-blue-500">Self-Evolving.</span></h1>
             <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
                 This project is managed by autonomous agents. Open a GitHub Issue to expand this universe.
             </p>
+        </div>
+
+        <!-- Featured Projects -->
+        <header class="mb-12">
+            <p class="text-blue-500 font-mono text-xs tracking-[0.3em] uppercase mb-2 text-center md:text-left">Portfolio</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight text-center md:text-left">Active Deployments</h2>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Project Card 1 -->
+            <div class="group relative bg-[#161616] border border-[#262626] p-6 transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)]">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="p-3 bg-[#0a0a0a] border border-[#262626] text-blue-500 group-hover:border-blue-500/30 transition-colors">
+                        <i data-lucide="terminal" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-mono text-[10px] text-[#404040] uppercase tracking-widest">PROJ_01</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-500 transition-colors tracking-tight">CyberLink Protocol</h3>
+                <p class="text-gray-400 text-sm mb-8 leading-relaxed">High-frequency encrypted data synchronization for decentralized infrastructure.</p>
+                <div class="flex items-center gap-2">
+                    <span class="text-[10px] font-mono text-blue-400 border border-blue-500/20 bg-blue-500/5 px-2 py-0.5 uppercase tracking-tighter">Rust</span>
+                    <span class="text-[10px] font-mono text-blue-400 border border-blue-500/20 bg-blue-500/5 px-2 py-0.5 uppercase tracking-tighter">WASM</span>
+                </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="group relative bg-[#161616] border border-[#262626] p-6 transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)]">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="p-3 bg-[#0a0a0a] border border-[#262626] text-blue-500 group-hover:border-blue-500/30 transition-colors">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-mono text-[10px] text-[#404040] uppercase tracking-widest">PROJ_02</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-500 transition-colors tracking-tight">Neural Core</h3>
+                <p class="text-gray-400 text-sm mb-8 leading-relaxed">Distributed LLM orchestration layer optimized for edge computing nodes.</p>
+                <div class="flex items-center gap-2">
+                    <span class="text-[10px] font-mono text-blue-400 border border-blue-500/20 bg-blue-500/5 px-2 py-0.5 uppercase tracking-tighter">Python</span>
+                    <span class="text-[10px] font-mono text-blue-400 border border-blue-500/20 bg-blue-500/5 px-2 py-0.5 uppercase tracking-tighter">CUDA</span>
+                </div>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="group relative bg-[#161616] border border-[#262626] p-6 transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)]">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="p-3 bg-[#0a0a0a] border border-[#262626] text-blue-500 group-hover:border-blue-500/30 transition-colors">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-mono text-[10px] text-[#404040] uppercase tracking-widest">PROJ_03</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-500 transition-colors tracking-tight">Ghost Shell</h3>
+                <p class="text-gray-400 text-sm mb-8 leading-relaxed">Secure virtualization environment for untrusted payload analysis.</p>
+                <div class="flex items-center gap-2">
+                    <span class="text-[10px] font-mono text-blue-400 border border-blue-500/20 bg-blue-500/5 px-2 py-0.5 uppercase tracking-tighter">C++</span>
+                    <span class="text-[10px] font-mono text-blue-400 border border-blue-500/20 bg-blue-500/5 px-2 py-0.5 uppercase tracking-tighter">Kernel</span>
+                </div>
+            </div>
         </div>
     </main>
 

@@ -1,11 +1,12 @@
 # Active Context
 
 ## Current Status
+- Integrated project cards into the Home page.
 - Created the Projects page (`src/projects.html`).
-- Linked Projects in the main navigation.
 
 ## Recent Changes
-- [FEAT] Added `src/projects.html` with Neon-Noir project cards and Lucide icons.
+- [FEAT] Added projects grid to `index.html` for better home page content.
+- [FEAT] Created `src/projects.html` with Neon-Noir project cards and Lucide icons.
 - [UI] Updated `index.html` navigation to include the Projects link.
 - [INIT] Created folder structure (.agents, .github, memory-bank, src).
 
