@@ -3,14 +3,14 @@
 ## 1. Technical Stack
 - **Engine:** Pure HTML5, Tailwind CSS (via CDN for zero-build demo).
 - **Icons:** Lucide Icons (CDN).
-- **Fonts:** Geist Sans or Inter (System Sans-Serif).
+- **Fonts:** Playfair Display (Serif) for headings, Inter (Sans-Serif) for body.
 
-## 2. Design Language (The "Neon-Noir" Style)
-- **Background:** `bg-[#0a0a0a]` (Pure deep black/gray).
-- **Surface:** `bg-[#161616]` with `border-[#262626]`.
-- **Primary Accent:** `text-blue-500` / `bg-blue-600`.
-- **Effect:** Use `backdrop-blur-md` for headers and `shadow-[0_0_15px_rgba(59,130,246,0.2)]` for active elements.
-- **Typography:** Tight tracking, uppercase subheaders, and mono-fonts for technical data.
+## 2. Design Language (The "Artisan Cacao" Style)
+- **Background:** `bg-[#0f0d0c]` (Deep dark cocoa).
+- **Surface:** `bg-[#1a1715]` with `border-[#2d2825]`.
+- **Primary Accent:** `text-amber-500` / `bg-amber-600` (Gold/Honey accents).
+- **Effect:** Use `backdrop-blur-xl` for headers and sophisticated glass-morphism.
+- **Typography:** Elegant serif for headings, clean sans-serif for descriptions.
 
 ## 3. Structural Rules
 - **Componentization:** Even in plain HTML, wrap logical sections in clear comments (e.g., ``).
