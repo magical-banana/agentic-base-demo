@@ -3,7 +3,8 @@ name: Aider Task with Universal Failover
 on:
   issues:
     types: [opened, edited]
-
+  issue_comment:
+    types: [created]
 jobs:
   run-aider:
     runs-on: ubuntu-latest
@@ -30,6 +31,13 @@ jobs:
           # OPENAI_API_BASE: https://models.inference.ai.azure.com
           # HUGGINGFACE_API_BASE: https://api-inference.huggingface.co
         run: |
+          # Determine if we are processing the original issue or a new comment
+          if [ "${{ github.event_name }}" == "issue_comment" ]; then
+            USER_INPUT="Feedback on Issue #${{ github.event.issue.number }}: ${{ github.event.comment.body }}"
+          else
+            USER_INPUT="New Task #${{ github.event.issue.number }}: ${{ github.event.issue.title }}. Task: ${{ github.event.issue.body }}"
+          fi
+
           # 1. Gemini (Huge Context)
           # 2. Groq (Insane Speed)
           # 3. Mistral (High Quality)
