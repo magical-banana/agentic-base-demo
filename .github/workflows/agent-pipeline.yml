@@ -60,8 +60,9 @@ jobs:
           for MODEL in "${MODELS[@]}"; do
             echo "🤖 Attempting with: $MODEL"
             
-            # Note: Removed --no-auto-commits. Aider needs to commit to track its own progress internally.
-            if aider --model "$MODEL" \
+            # timeout 60s forces the command to kill itself if it hangs/retries too long
+            # This triggers the 'else' block and moves to Mistral
+            if timeout 60s aider --model "$MODEL" \
                   --read .agents/senior-developer.md \
                   --file memory-bank/activeContext.md \
                   --file memory-bank/architecture.md \
@@ -71,8 +72,8 @@ jobs:
               SUCCESS=true
               break
             else
-              echo "⚠️ $MODEL failed. Trying next provider in 15s..."
-              sleep 15
+              echo "⚠️ $MODEL timed out or rate limited. Moving to next provider..."
+              # No sleep needed here because the 60s timeout was the wait
             fi
           done
 
