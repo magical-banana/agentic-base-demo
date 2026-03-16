@@ -3,30 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agentic Base | Explorer</title>
+    <title>Velvet Cacao | Artisan Chocolatier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        .luxury-glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
 </head>
-<body class="bg-[#0a0a0a] text-gray-100 min-h-screen font-sans">
-    <nav class="sticky top-0 z-50 border-b border-[#262626] bg-[#0a0a0a]/80 backdrop-blur-md">
-        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <i data-lucide="cpu" class="text-blue-500"></i>
-                <span class="font-bold tracking-tight text-xl text-white">AGENTIC_BASE</span>
+<body class="bg-[#0f0d0c] text-gray-200 min-h-screen selection:bg-amber-500/30">
+    <!-- Background Ambient Glow -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="absolute -top-[10%] -left-[10%] w-[70%] h-[70%] rounded-full bg-amber-600/5 blur-[120px] animate-pulse"></div>
+        <div class="absolute -bottom-[10%] -right-[10%] w-[70%] h-[70%] rounded-full bg-orange-900/10 blur-[120px] animate-pulse" style="animation-delay: 3s;"></div>
+    </div>
+    <nav class="sticky top-0 z-50 border-b border-[#2d2825] bg-[#0f0d0c]/80 backdrop-blur-md">
+        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i data-lucide="gem" class="text-amber-500 w-8 h-8"></i>
+                <span class="font-bold tracking-tighter text-2xl text-white serif">VELVET_CACAO</span>
             </div>
-            <div id="nav-links" class="flex gap-6 text-sm font-medium text-gray-400">
-                <a href="index.html" class="text-blue-500">Home</a>
-                <a href="src/projects.html" class="hover:text-white transition-colors">Projects</a>
+            <div id="nav-links" class="flex gap-8 text-sm font-medium text-gray-400">
+                <a href="index.html" class="text-amber-500">Home</a>
+                <a href="src/collection.html" class="hover:text-amber-500 transition-colors">Collection</a>
             </div>
         </div>
     </nav>
 
     <main class="max-w-5xl mx-auto px-6 py-20">
-        <div class="text-center">
-            <h1 class="text-5xl font-extrabold text-white mb-6">The Future is <span class="text-blue-500">Self-Evolving.</span></h1>
-            <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
-                This project is managed by autonomous agents. Open a GitHub Issue to expand this universe.
+        <div class="text-center mb-24 animate-fade-in-up">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight leading-tight">Artisanal indulgence,<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-500">Purely Transcendent.</span></h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed opacity-0 animate-fade-in-up stagger-1 italic serif">
+                Handcrafted chocolates infused with exotic botanicals and the finest single-origin cacao.
             </p>
+        </div>
+
+        <!-- Featured Collections -->
+        <header class="mb-12 animate-fade-in-up stagger-2">
+            <p class="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase mb-2 text-center md:text-left">Signature Series</p>
+            <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight text-center md:text-left">Current Curation</h2>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Product Card 1 -->
+            <div class="group relative bg-[#1a1715] border border-[#2d2825] p-8 transition-all duration-500 hover:border-amber-500/50 hover:shadow-[0_0_40px_rgba(245,158,11,0.1)] hover:-translate-y-2 opacity-0 animate-fade-in-up stagger-3">
+                <div class="flex justify-between items-start mb-8">
+                    <div class="p-4 bg-[#0f0d0c] border border-[#2d2825] text-amber-500 group-hover:border-amber-500/30 transition-colors">
+                        <i data-lucide="cookie" class="w-7 h-7"></i>
+                    </div>
+                    <span class="font-mono text-[10px] text-[#5e544e] uppercase tracking-widest">LOT_01</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-amber-500 transition-colors tracking-tight">Midnight Truffle</h3>
+                <p class="text-gray-400 text-sm mb-10 leading-relaxed font-light">75% dark Ecuadorian cacao with a silk-smooth ganache heart and sea salt crystals.</p>
+                <div class="flex items-center justify-between">
+                    <div class="flex gap-2">
+                        <span class="text-[10px] font-mono text-amber-400 border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 uppercase tracking-tighter">Dark</span>
+                        <span class="text-[10px] font-mono text-amber-400 border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 uppercase tracking-tighter">Ecuador</span>
+                    </div>
+                    <span class="text-white font-bold">$24.00</span>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="group relative bg-[#1a1715] border border-[#2d2825] p-8 transition-all duration-500 hover:border-amber-500/50 hover:shadow-[0_0_40px_rgba(245,158,11,0.1)] hover:-translate-y-2 opacity-0 animate-fade-in-up stagger-4">
+                <div class="flex justify-between items-start mb-8">
+                    <div class="p-4 bg-[#0f0d0c] border border-[#2d2825] text-amber-500 group-hover:border-amber-500/30 transition-colors">
+                        <i data-lucide="coffee" class="w-7 h-7"></i>
+                    </div>
+                    <span class="font-mono text-[10px] text-[#5e544e] uppercase tracking-widest">LOT_02</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-amber-500 transition-colors tracking-tight">Arabica Gold</h3>
+                <p class="text-gray-400 text-sm mb-10 leading-relaxed font-light">Creamy milk chocolate infused with cold-brew Ethiopian coffee and edible gold leaf.</p>
+                <div class="flex items-center justify-between">
+                    <div class="flex gap-2">
+                        <span class="text-[10px] font-mono text-amber-400 border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 uppercase tracking-tighter">Milk</span>
+                        <span class="text-[10px] font-mono text-amber-400 border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 uppercase tracking-tighter">Gold</span>
+                    </div>
+                    <span class="text-white font-bold">$28.00</span>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="group relative bg-[#1a1715] border border-[#2d2825] p-8 transition-all duration-500 hover:border-amber-500/50 hover:shadow-[0_0_40px_rgba(245,158,11,0.1)] hover:-translate-y-2 opacity-0 animate-fade-in-up stagger-5">
+                <div class="flex justify-between items-start mb-8">
+                    <div class="p-4 bg-[#0f0d0c] border border-[#2d2825] text-amber-500 group-hover:border-amber-500/30 transition-colors">
+                        <i data-lucide="flower" class="w-7 h-7"></i>
+                    </div>
+                    <span class="font-mono text-[10px] text-[#5e544e] uppercase tracking-widest">LOT_03</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-amber-500 transition-colors tracking-tight">Rose Pistachio</h3>
+                <p class="text-gray-400 text-sm mb-10 leading-relaxed font-light">White chocolate velvet base with crushed Persian pistachios and organic rose petals.</p>
+                <div class="flex items-center justify-between">
+                    <div class="flex gap-2">
+                        <span class="text-[10px] font-mono text-amber-400 border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 uppercase tracking-tighter">White</span>
+                        <span class="text-[10px] font-mono text-amber-400 border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 uppercase tracking-tighter">Flora</span>
+                    </div>
+                    <span class="text-white font-bold">$26.00</span>
+                </div>
+            </div>
         </div>
     </main>
 
