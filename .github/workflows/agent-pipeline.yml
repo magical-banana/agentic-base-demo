@@ -25,23 +25,23 @@ jobs:
                 --message "Issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}. Task: ${{ github.event.issue.body }}" \
                 --yes-always
       - name: Create Pull Request
-              uses: peter-evans/create-pull-request@v6
-              with:
-                token: ${{ secrets.GITHUB_TOKEN }}
-                title: "feat: ${{ github.event.issue.title }}" 
-                branch: "ai/issue-${{ github.event.issue.number }}"
-                commit-message: "feat: ${{ github.event.issue.title }}"
-                body: |
-                  ## 🎯 Summary
-                  This PR addresses Issue #${{ github.event.issue.number }}.
-                  
-                  ## 🛠️ Changes
-                  - Automatically implemented by Agentic SDLC Pipeline.
-                  - See commit history for specific file diffs.
-                  
-                  ## 🧠 Memory Bank Status
-                  - [x] `activeContext.md` updated.
-                  - [x] `architecture.md` verified.
-                  
-                  ---
-                  *Closes #${{ github.event.issue.number }}*
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "feat: ${{ github.event.issue.title }}" 
+          branch: "ai/issue-${{ github.event.issue.number }}"
+          commit-message: "feat: ${{ github.event.issue.title }}"
+          body: |
+            ## 🎯 Summary
+            This PR addresses Issue #${{ github.event.issue.number }}.
+            
+            ## 🛠️ Changes
+            - Automatically implemented by Agentic SDLC Pipeline.
+            - See commit history for specific file diffs.
+            
+            ## 🧠 Memory Bank Status
+            - [x] `activeContext.md` updated.
+            - [x] `architecture.md` verified.
+            
+            ---
+            *Closes #${{ github.event.issue.number }}*
