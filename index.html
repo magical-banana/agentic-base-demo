@@ -6,8 +6,35 @@
     <title>Agentic Base | Explorer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+    </style>
 </head>
-<body class="bg-[#0a0a0a] text-gray-100 min-h-screen font-sans">
+<body class="bg-[#0a0a0a] text-gray-100 min-h-screen font-sans selection:bg-blue-500/30">
+    <!-- Background Ambient Glow -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="absolute -top-[10%] -left-[10%] w-[70%] h-[70%] rounded-full bg-blue-600/5 blur-[120px] animate-pulse"></div>
+        <div class="absolute -bottom-[10%] -right-[10%] w-[70%] h-[70%] rounded-full bg-blue-900/10 blur-[120px] animate-pulse" style="animation-delay: 3s;"></div>
+    </div>
     <nav class="sticky top-0 z-50 border-b border-[#262626] bg-[#0a0a0a]/80 backdrop-blur-md">
         <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-2">
@@ -22,22 +49,22 @@
     </nav>
 
     <main class="max-w-5xl mx-auto px-6 py-20">
-        <div class="text-center mb-20">
-            <h1 class="text-5xl font-extrabold text-white mb-6 tracking-tight">The Future is <span class="text-blue-500">Self-Evolving.</span></h1>
-            <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+        <div class="text-center mb-24 animate-fade-in-up">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">The Future is <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 animate-pulse">Self-Evolving.</span></h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed opacity-0 animate-fade-in-up stagger-1">
                 This project is managed by autonomous agents. Open a GitHub Issue to expand this universe.
             </p>
         </div>
 
         <!-- Featured Projects -->
-        <header class="mb-12">
+        <header class="mb-12 animate-fade-in-up stagger-2">
             <p class="text-blue-500 font-mono text-xs tracking-[0.3em] uppercase mb-2 text-center md:text-left">Portfolio</p>
             <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight text-center md:text-left">Active Deployments</h2>
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Project Card 1 -->
-            <div class="group relative bg-[#161616] border border-[#262626] p-6 transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)]">
+            <div class="group relative bg-[#161616] border border-[#262626] p-6 transition-all duration-500 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] hover:-translate-y-2 opacity-0 animate-fade-in-up stagger-3">
                 <div class="flex justify-between items-start mb-6">
                     <div class="p-3 bg-[#0a0a0a] border border-[#262626] text-blue-500 group-hover:border-blue-500/30 transition-colors">
                         <i data-lucide="terminal" class="w-6 h-6"></i>
@@ -53,7 +80,7 @@
             </div>
 
             <!-- Project Card 2 -->
-            <div class="group relative bg-[#161616] border border-[#262626] p-6 transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)]">
+            <div class="group relative bg-[#161616] border border-[#262626] p-6 transition-all duration-500 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] hover:-translate-y-2 opacity-0 animate-fade-in-up stagger-4">
                 <div class="flex justify-between items-start mb-6">
                     <div class="p-3 bg-[#0a0a0a] border border-[#262626] text-blue-500 group-hover:border-blue-500/30 transition-colors">
                         <i data-lucide="cpu" class="w-6 h-6"></i>
@@ -69,7 +96,7 @@
             </div>
 
             <!-- Project Card 3 -->
-            <div class="group relative bg-[#161616] border border-[#262626] p-6 transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)]">
+            <div class="group relative bg-[#161616] border border-[#262626] p-6 transition-all duration-500 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] hover:-translate-y-2 opacity-0 animate-fade-in-up stagger-5">
                 <div class="flex justify-between items-start mb-6">
                     <div class="p-3 bg-[#0a0a0a] border border-[#262626] text-blue-500 group-hover:border-blue-500/30 transition-colors">
                         <i data-lucide="shield-check" class="w-6 h-6"></i>
