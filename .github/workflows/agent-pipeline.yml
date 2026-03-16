@@ -1,38 +1,70 @@
-name: Agentic Build Pipeline
+name: Aider Task with Universal Failover
+
 on:
   issues:
-    types: [labeled]
+    types: [opened, edited]
 
 jobs:
-  agent-build:
-    if: contains(github.event.issue.labels.*.name, 'agent-build')
+  run-aider:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
     steps:
-      - uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
-
-      # PRO FIX: GitHub Actions needs a "user" to make commits
-      - name: Config Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required for Aider to see git history
 
       - name: Install Aider
-        run: pip install aider-chat
-
-      - name: Run Agent Task
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          aider --model flash \
-                --read .agents/senior-developer.md \
-                --file memory-bank/activeContext.md \
-                --file memory-bank/architecture.md \
-                --message "Issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}. Task: ${{ github.event.issue.body }}" \
-                --yes-always
+          python -m pip install --upgrade pip
+          pip install aider-chat
+
+      - name: Run Agent Task with Universal Failover
+        env:
+          # API Keys
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          # HUGGINGFACE_API_KEY: ${{ secrets.HUGGINGFACE_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Required Base URLs for Aider (LiteLLM)
+          # OPENAI_API_BASE: https://models.inference.ai.azure.com
+          # HUGGINGFACE_API_BASE: https://api-inference.huggingface.co
+        run: |
+          # 1. Gemini (Huge Context)
+          # 2. Groq (Insane Speed)
+          # 3. Mistral (High Quality)
+          # 4. GitHub Models (Native Reliability)
+          # 5. Hugging Face (Open Source Fallback)
+          MODELS=(
+            "flash"
+            "mistral/open-mistral-nemo"
+          )
+          
+          SUCCESS=false
+          for MODEL in "${MODELS[@]}"; do
+            echo "🤖 Attempting with: $MODEL"
+            
+            # --no-auto-commits prevents Aider from hanging on 'dirty repo' prompts in CI
+            if aider --model "$MODEL" \
+                  --read .agents/senior-developer.md \
+                  --file memory-bank/activeContext.md \
+                  --file memory-bank/architecture.md \
+                  --message "Issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}. Task: ${{ github.event.issue.body }}" \
+                  --yes-always \
+                  --no-auto-commits \
+                  --no-show-model-warnings; then
+              SUCCESS=true
+              break
+            else
+              echo "⚠️ $MODEL failed. Trying next provider in 15s..."
+              sleep 15
+            fi
+          done
+
+          if [ "$SUCCESS" = false ]; then
+            echo "❌ Total System Failure: All Free Tiers Exhausted."
+            exit 1
+          fi
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
