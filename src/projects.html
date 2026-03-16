@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | AGENTIC_BASE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#0a0a0a] text-gray-100 min-h-screen font-sans">
+    <nav class="sticky top-0 z-50 border-b border-[#262626] bg-[#0a0a0a]/80 backdrop-blur-md">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i data-lucide="cpu" class="text-blue-500"></i>
+                <span class="font-bold tracking-tight text-xl text-white">AGENTIC_BASE</span>
+            </div>
+            <div id="nav-links" class="flex gap-6 text-sm font-medium text-gray-400">
+                <a href="../index.html" class="hover:text-white transition-colors">Home</a>
+                <a href="projects.html" class="text-blue-500">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto px-6 py-20">
+        <header class="mb-12">
+            <h1 class="text-4xl font-extrabold text-white mb-4">Active <span class="text-blue-500">Projects</span></h1>
+            <p class="text-gray-400 max-w-xl">Exploring the frontiers of autonomous intelligence and self-evolving systems.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Project 1 -->
+            <div class="bg-[#111111] border border-[#262626] rounded-xl p-6 hover:border-blue-500/50 transition-all duration-300 group">
+                <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4 group-hover:bg-blue-500/20 transition-colors">
+                    <i data-lucide="zap" class="text-blue-500"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Project Aurora</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">High-performance agentic engine designed for sub-millisecond reasoning and orchestration.</p>
+                <div class="flex items-center gap-2 text-[10px] font-mono text-blue-400 uppercase tracking-wider">
+                    <span class="px-2 py-1 rounded bg-blue-500/5 border border-blue-500/10">v2.4.0</span>
+                    <span class="px-2 py-1 rounded bg-blue-500/5 border border-blue-500/10">Active</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="bg-[#111111] border border-[#262626] rounded-xl p-6 hover:border-blue-500/50 transition-all duration-300 group">
+                <div class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition-colors">
+                    <i data-lucide="layers" class="text-purple-500"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">CyberMesh</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Decentralized intelligence network enabling cross-agent collaboration without central authority.</p>
+                <div class="flex items-center gap-2 text-[10px] font-mono text-purple-400 uppercase tracking-wider">
+                    <span class="px-2 py-1 rounded bg-purple-500/5 border border-purple-500/10">Alpha</span>
+                    <span class="px-2 py-1 rounded bg-purple-500/5 border border-purple-500/10">Experimental</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="bg-[#111111] border border-[#262626] rounded-xl p-6 hover:border-blue-500/50 transition-all duration-300 group">
+                <div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4 group-hover:bg-emerald-500/20 transition-colors">
+                    <i data-lucide="shield" class="text-emerald-500"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Nebula Core</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Autonomous infrastructure manager that predicts and self-heals system anomalies.</p>
+                <div class="flex items-center gap-2 text-[10px] font-mono text-emerald-400 uppercase tracking-wider">
+                    <span class="px-2 py-1 rounded bg-emerald-500/5 border border-emerald-500/10">v1.0.2</span>
+                    <span class="px-2 py-1 rounded bg-emerald-500/5 border border-emerald-500/10">Stable</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
