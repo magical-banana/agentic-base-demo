@@ -27,8 +27,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          # Use the -latest suffix for Gemini in Aider
-          aider --model gemini/gemini-1.5-flash \
+          aider --model flash \
                 --read .agents/senior-developer.md \
                 --read memory-bank/activeContext.md \
                 --message "Issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}. Task: ${{ github.event.issue.body }}" \
