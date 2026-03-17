@@ -2,17 +2,15 @@ name: Aider Task with Universal Failover
 
 on:
   issues:
-    types: [opened, edited]
+    types: [opened, edited, labeled]
   issue_comment:
     types: [created]
 
 jobs:
-  run-aider:
-    # IMPORTANT: Prevent the bot from replying to itself in an infinite loop
+  agent-runner:
     if: github.event.sender.type != 'Bot'
     runs-on: ubuntu-latest
     
-    # FIX 1: Explicitly grant write permissions to the GITHUB_TOKEN
     permissions:
       contents: write
       pull-requests: write
@@ -24,7 +22,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      # FIX 2: Aider needs a git identity to function in CI
       - name: Config Git
         run: |
           git config --global user.name "github-actions[bot]"
@@ -34,6 +31,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+          cache: 'pip'
 
       - name: Install Aider
         run: |
@@ -45,25 +43,36 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # FIX: Bind context to env vars to prevent script injection and handle full context
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          COMMENT_BODY: ${{ github.event.comment.body }}
         run: |
-          # Determine the prompt based on event type
+          # 1. Determine the prompt and include original context for comments
           if [ "${{ github.event_name }}" == "issue_comment" ]; then
-            USER_INPUT="Feedback on Issue #${{ github.event.issue.number }}: ${{ github.event.comment.body }}"
+            USER_INPUT="Update for #${{ github.event.issue.number }}: $ISSUE_TITLE. New Instructions: $COMMENT_BODY"
           else
-            USER_INPUT="New Task #${{ github.event.issue.number }}: ${{ github.event.issue.title }}. Task: ${{ github.event.issue.body }}"
+            USER_INPUT="Task #${{ github.event.issue.number }}: $ISSUE_TITLE. Requirements: $ISSUE_BODY"
           fi
 
-          # FIX 3: Use the correct model string for Gemini
-          MODELS=("flash" "mistral/open-mistral-nemo")
+          # 2. Multi-Agent selection logic (Generic & respects your file structure)
+          AGENT_PATH=".agents/senior-developer.md"
+          for label in ${{ join(github.event.issue.labels.*.name, ' ') }}; do
+            if [ -f ".agents/$label.md" ]; then
+              AGENT_PATH=".agents/$label.md"
+              break
+            fi
+          done
+
+          # 3. Failover Loop
+          MODELS=("gemini/gemini-1.5-pro" "gemini/gemini-1.5-flash" "mistral/open-mistral-nemo")
           
           SUCCESS=false
           for MODEL in "${MODELS[@]}"; do
-            echo "🤖 Attempting with: $MODEL"
+            echo "🤖 Attempting with: $MODEL using $AGENT_PATH"
             
-            # timeout 60s forces the command to kill itself if it hangs/retries too long
-            # This triggers the 'else' block and moves to Mistral
-            if timeout 60s aider --model "$MODEL" \
-                  --read .agents/senior-developer.md \
+            if timeout 300s aider --model "$MODEL" \
+                  --read "$AGENT_PATH" \
                   --file memory-bank/activeContext.md \
                   --file memory-bank/architecture.md \
                   --message "$USER_INPUT" \
@@ -72,8 +81,7 @@ jobs:
               SUCCESS=true
               break
             else
-              echo "⚠️ $MODEL timed out or rate limited. Moving to next provider..."
-              # No sleep needed here because the 60s timeout was the wait
+              echo "⚠️ $MODEL failed or timed out. Moving to next provider..."
             fi
           done
 
@@ -88,6 +96,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "AI-generated update: #${{ github.event.issue.number }}"
           title: "PR: ${{ github.event.issue.title }}"
+          # Branch stays consistent so comments update the same PR
+          branch: "ai-fix-${{ github.event.issue.number }}"
+          delete-branch: false
           body: |
             ## 🤖 Agentic Update
             This PR addresses Issue #${{ github.event.issue.number }}.
@@ -97,4 +108,3 @@ jobs:
             - Memory Bank updated.
             
             *Closes #${{ github.event.issue.number }}*
-          branch: "ai-fix-${{ github.event.issue.number }}"
