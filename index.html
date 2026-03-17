@@ -48,20 +48,28 @@
                 </div>
                 <span class="font-bold tracking-tight text-xl">MAGICAL_BANANA</span>
             </div>
-            <div id="nav-links" class="flex gap-8 text-sm font-semibold text-gray-600">
+            <div id="nav-links" class="hidden md:flex gap-8 text-sm font-semibold text-gray-600">
                 <a href="index.html" class="text-purple-600">Home</a>
                 <a href="src/projects.html" class="hover:text-purple-600 transition-colors">Projects</a>
             </div>
+            <button id="mobile-menu-button" class="md:hidden p-2 text-gray-600">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-4 shadow-lg">
+            <a href="index.html" class="block text-purple-600 font-semibold">Home</a>
+            <a href="src/projects.html" class="block text-gray-600 font-semibold hover:text-purple-600">Projects</a>
         </div>
     </nav>
 
-    <main class="max-w-5xl mx-auto px-6 py-24">
-        <div class="grid md:grid-cols-2 gap-12 items-center mb-32">
+    <main class="max-w-5xl mx-auto px-6 py-12 md:py-24">
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-20 md:mb-32">
             <div class="order-2 md:order-1">
-                <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-yellow-100 text-yellow-700 text-sm font-bold tracking-wide uppercase animate-peel">
+                <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-yellow-100 text-yellow-700 text-[10px] md:text-sm font-bold tracking-wide uppercase animate-peel">
                     DevOps Engineer & AI Architect
                 </div>
-                <h1 class="text-6xl md:text-7xl font-extrabold text-gray-900 mb-8 leading-[1.1] tracking-tight">
+                <h1 class="text-4xl md:text-7xl font-extrabold text-gray-900 mb-8 leading-[1.1] tracking-tight">
                     Building the <span class="text-transparent bg-clip-text magical-gradient">Magical</span> Infrastructure of tomorrow.
                 </h1>
                 <p class="text-xl text-gray-600 leading-relaxed mb-10 max-w-xl">
@@ -112,6 +120,13 @@
         </div>
     </main>
 
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
