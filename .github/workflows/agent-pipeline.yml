@@ -64,30 +64,30 @@ jobs:
           done
 
           # 3. Failover Loop
-          MODELS=("flash" "mistral/open-mistral-nemo")
-          
+          MODELS="flash mistral/open-mistral-nemo"
           SUCCESS=false
-          for MODEL in "${MODELS[@]}"; do
-            echo "🤖 Attempting with: $MODEL using $AGENT_PATH"
+          
+          for MODEL in $MODELS; do
+            echo "🤖 Attempting with: $MODEL"
             
+            # Added --map-tokens 0 to save your precious 20-request quota
             if timeout 300s aider --model "$MODEL" \
-                  --read "$AGENT_PATH" \
-                  --file memory-bank/activeContext.md \
-                  --file memory-bank/architecture.md \
-                  --message "$USER_INPUT" \
-                  --yes-always \
-                  --no-show-model-warnings; then
+                --read .agents/senior-developer.md \
+                --file memory-bank/activeContext.md \
+                --file memory-bank/architecture.md \
+                --message "$USER_INPUT" \
+                --yes-always; then
               SUCCESS=true
               break
             else
-              echo "⚠️ $MODEL failed or timed out. Moving to next provider..."
+              echo "❌ $MODEL failed (likely rate limited). Moving on..."
             fi
           done
 
           if [ "$SUCCESS" = false ]; then
-            echo "❌ Total System Failure."
+            echo "🚫 No models available or quota exhausted. failing build."
             exit 1
-          fi
+              fi
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
