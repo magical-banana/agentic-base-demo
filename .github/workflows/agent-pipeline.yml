@@ -64,7 +64,7 @@ jobs:
           done
 
           # 3. Failover Loop
-          MODELS=("gemini/gemini-1.5-pro" "gemini/gemini-1.5-flash" "mistral/open-mistral-nemo")
+          MODELS=("flash" "mistral/open-mistral-nemo")
           
           SUCCESS=false
           for MODEL in "${MODELS[@]}"; do
