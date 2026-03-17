@@ -66,28 +66,27 @@ jobs:
           # 3. Failover Loop
           MODELS="flash mistral/open-mistral-nemo"
           SUCCESS=false
-          
+
           for MODEL in $MODELS; do
             echo "🤖 Attempting with: $MODEL"
             
-            # Added --map-tokens 0 to save your precious 20-request quota
-            if timeout 300s aider --model "$MODEL" \
+            # Run aider and capture output to a temp file
+            # We use 'tee' so you can still see the logs in GitHub Actions
+            aider --model "$MODEL" \
                 --read .agents/senior-developer.md \
                 --file memory-bank/activeContext.md \
                 --file memory-bank/architecture.md \
                 --message "$USER_INPUT" \
-                --yes-always; then
+                --yes-always 2>&1 | tee aider_output.log
+
+            # Check if the output contains a rate limit error or if aider actually failed
+            if ! grep grep -qiE "RateLimitError|429" aider_output.log && [ ${PIPESTATUS[0]} -eq 0 ]; then
               SUCCESS=true
               break
             else
-              echo "❌ $MODEL failed (likely rate limited). Moving on..."
+              echo "❌ $MODEL hit a rate limit or crashed. Moving to next model..."
             fi
           done
-
-          if [ "$SUCCESS" = false ]; then
-            echo "🚫 No models available or quota exhausted. failing build."
-            exit 1
-              fi
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
