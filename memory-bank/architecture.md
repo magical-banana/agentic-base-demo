@@ -3,14 +3,15 @@
 ## 1. Technical Stack
 - **Engine:** Pure HTML5, Tailwind CSS (via CDN for zero-build demo).
 - **Icons:** Lucide Icons (CDN).
-- **Fonts:** Playfair Display (Serif) for headings, Inter (Sans-Serif) for body.
+- **Fonts:** Space Grotesk (Sans-Serif) for headings, Inter (Sans-Serif) for body.
 
-## 2. Design Language (The "Artisan Cacao" Style)
-- **Background:** `bg-[#0f0d0c]` (Deep dark cocoa).
-- **Surface:** `bg-[#1a1715]` with `border-[#2d2825]`.
-- **Primary Accent:** `text-amber-500` / `bg-amber-600` (Gold/Honey accents).
-- **Effect:** Use `backdrop-blur-xl` for headers and sophisticated glass-morphism.
-- **Typography:** Elegant serif for headings, clean sans-serif for descriptions.
+## 2. Design Language (The "Magical Banana" Style)
+- **Background:** `bg-white` / `bg-gray-50`.
+- **Primary Accent:** `#FDE047` (Vibrant Yellow).
+- **Secondary Accent:** `#A855F7` (Magical Purple).
+- **Aesthetic:** High-energy, whimsical, bright, and technical.
+- **Effect:** Magical transitions, floating elements, glowing borders, and "peeling" reveals.
+- **Typography:** Bold, modern sans-serif for headings (Space Grotesk), clean sans-serif for body.
 
 ## 3. Structural Rules
 - **Componentization:** Even in plain HTML, wrap logical sections in clear comments (e.g., ``).
