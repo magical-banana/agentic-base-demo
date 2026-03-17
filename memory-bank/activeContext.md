@@ -13,8 +13,11 @@
 - [UI] Added magical transitions (peeling, floating, glowing).
 - [FEAT] Refocused content on CI/CD, Infrastructure as Code, Kubernetes, and AI Agents.
 - [FEAT] Added detailed project page for **Agentic CI/CD** in `src/agentic-cicd.html`.
+- [FEAT] Implemented **Nebula Automator** spell page in `src/spells/nebula-automator.html`.
+- [UI] Added sidebar navigation to Nebula Automator page for category-based browsing (Automation/Infrastructure).
+- [UI] Linked Nebula Automator card from `src/projects.html`.
 
 ## Immediate Next Steps
 1. Implement GitHub API integration to fetch real project data.
 2. Add a terminal-style interactive bio component.
-3. Fine-tune "peeling" animations for project cards.
+3. Standardize sidebar navigation across all laboratory/spell pages.

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nebula Automator | Magical Banana</title>
+    <meta name="description" content="AI-driven Kubernetes, Predictive Scaling, and Self-healing Infrastructure.">
+    <meta name="keywords" content="AI-driven Kubernetes, Predictive Scaling, Self-healing Infrastructure, K8s Operator">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .magical-gradient {
+            background: linear-gradient(135deg, #FDE047 0%, #A855F7 100%);
+        }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        
+        .peel-card {
+            position: relative;
+            background: white;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+        .peel-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            background: linear-gradient(225deg, transparent 50%, #f3f4f6 50%);
+            transition: all 0.4s ease;
+            z-index: 10;
+        }
+        .peel-card:hover::before {
+            width: 32px;
+            height: 32px;
+            box-shadow: -2px 2px 5px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen selection:bg-purple-200">
+    <!-- Background sparkles -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 right-0 w-[50%] h-[50%] rounded-full bg-purple-500/5 blur-[120px]"></div>
+        <div class="absolute bottom-0 left-0 w-[40%] h-[40%] rounded-full bg-yellow-500/5 blur-[100px]"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 magical-gradient rounded-lg flex items-center justify-center text-white rotate-12">
+                    <i data-lucide="zap" class="w-5 h-5"></i>
+                </div>
+                <span class="font-bold tracking-tight text-xl">MAGICAL_BANANA</span>
+            </div>
+            <div id="nav-links" class="flex gap-8 text-sm font-semibold text-gray-600">
+                <a href="../../index.html" class="hover:text-purple-600 transition-colors">Home</a>
+                <a href="../projects.html" class="hover:text-purple-600 transition-colors">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row gap-12">
+        <!-- Sidebar -->
+        <aside class="w-full md:w-64 flex-shrink-0 animate-fade-in-up">
+            <div class="sticky top-32 space-y-8">
+                <div>
+                    <h3 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Automation</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-purple-600 font-bold flex items-center gap-2"><i data-lucide="chevron-right" class="w-4 h-4"></i> Nebula Automator</a></li>
+                        <li><a href="../agentic-cicd.html" class="text-gray-500 hover:text-gray-900 transition-colors flex items-center gap-2">Agentic CI/CD</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Infrastructure</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-500 hover:text-gray-900 transition-colors flex items-center gap-2">Self-Healing Nodes</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-gray-900 transition-colors flex items-center gap-2">Predictive K8s</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-grow max-w-4xl">
+            <header class="mb-16 animate-fade-in-up stagger-1">
+                <div class="flex gap-3 mb-6">
+                    <span class="px-3 py-1 bg-gray-900 text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded">K8S Operator</span>
+                    <span class="px-3 py-1 bg-yellow-400 text-gray-900 text-[10px] font-bold uppercase tracking-[0.2em] rounded">Predictive AI</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 tracking-tight mb-8">Nebula Automator</h1>
+                <p class="text-2xl text-gray-500 leading-relaxed">A specialized Self-healing Kubernetes operator designed for proactive infrastructure management using predictive AI models.</p>
+            </header>
+
+            <!-- Architecture Loop Section -->
+            <section class="mb-20 animate-fade-in-up stagger-2">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                    <i data-lucide="workflow" class="text-purple-600"></i>
+                    Architecture Loop
+                </h2>
+                <div class="bg-white border-2 border-gray-100 rounded-[48px] p-12 flex items-center justify-center relative overflow-hidden group">
+                    <!-- Simple SVG Placeholder Diagram -->
+                    <svg viewBox="0 0 400 200" class="w-full max-w-lg">
+                        <defs>
+                            <linearGradient id="svgGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#FDE047" />
+                                <stop offset="100%" style="stop-color:#A855F7" />
+                            </linearGradient>
+                        </defs>
+                        <!-- K8s Cluster -->
+                        <rect x="20" y="60" width="80" height="80" rx="12" fill="none" stroke="#e5e7eb" stroke-width="2" />
+                        <text x="60" y="155" text-anchor="middle" font-size="10" fill="#9ca3af" font-weight="bold">K8s Cluster</text>
+                        <circle cx="60" cy="100" r="15" fill="#fde047" opacity="0.2" />
+                        <path d="M50 100h20M60 90v20" stroke="#fde047" stroke-width="2" />
+
+                        <!-- Arrow to AI -->
+                        <path d="M110 100h60" stroke="url(#svgGrad)" stroke-width="2" stroke-dasharray="4 4" />
+                        <path d="M165 95l5 5-5 5" fill="none" stroke="url(#svgGrad)" stroke-width="2" />
+
+                        <!-- AI Model -->
+                        <rect x="180" y="60" width="80" height="80" rx="12" fill="none" stroke="#e5e7eb" stroke-width="2" />
+                        <text x="220" y="155" text-anchor="middle" font-size="10" fill="#9ca3af" font-weight="bold">Predictive AI</text>
+                        <path d="M195 100c5-15 25-15 30 0s25 15 30 0" fill="none" stroke="#a855f7" stroke-width="2" />
+
+                        <!-- Arrow back to Controller -->
+                        <path d="M270 100h60" stroke="url(#svgGrad)" stroke-width="2" stroke-dasharray="4 4" />
+                        <path d="M325 95l5 5-5 5" fill="none" stroke="url(#svgGrad)" stroke-width="2" />
+
+                        <!-- Operator -->
+                        <rect x="340" y="60" width="40" height="80" rx="12" fill="none" stroke="#e5e7eb" stroke-width="2" />
+                        <text x="360" y="155" text-anchor="middle" font-size="10" fill="#9ca3af" font-weight="bold">Operator</text>
+                        <rect x="350" y="90" width="20" height="20" rx="4" fill="#a855f7" />
+                    </svg>
+                    <div class="absolute inset-0 bg-gradient-to-tr from-purple-500/5 to-transparent pointer-events-none"></div>
+                </div>
+            </section>
+
+            <!-- Functionality Breakdown -->
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 animate-fade-in-up stagger-3">
+                <div class="bg-white p-8 rounded-[32px] border-2 border-gray-100 peel-card">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <i data-lucide="shield-check" class="text-yellow-500"></i>
+                        Self-Healing
+                    </h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Automated detection and remediation of node/pod failures. The operator identifies drift from desired state and reconciles resources before cascading failures occur.</p>
+                </div>
+                <div class="bg-white p-8 rounded-[32px] border-2 border-gray-100 peel-card">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <i data-lucide="trending-up" class="text-purple-600"></i>
+                        Predictive Scaling
+                    </h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Integration with AI traffic models to scale resources *before* demand spikes occur. Moves beyond reactive HPA to a future-aware infrastructure.</p>
+                </div>
+            </section>
+
+            <!-- Configuration Section -->
+            <section class="mb-20 animate-fade-in-up">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">Resource Configuration</h2>
+                <div class="bg-gray-900 rounded-[32px] p-8 overflow-hidden relative group">
+                    <div class="absolute top-4 right-6 text-gray-500 text-xs font-mono uppercase">YAML</div>
+                    <pre class="text-gray-300 text-sm font-mono leading-relaxed"><code>apiVersion: automation.nebula.io/v1alpha1
+kind: NebulaAutoscaler
+metadata:
+  name: web-api-predictive-scaler
+spec:
+  targetRef:
+    kind: Deployment
+    name: web-api
+  aiModel:
+    type: "Transformer-Traffic-V2"
+    lookaheadWindow: "30m"
+  scalingPolicy:
+    minReplicas: 3
+    maxReplicas: 50</code></pre>
+                </div>
+            </section>
+
+            <!-- Metrics & Models Section -->
+            <section class="mb-20 animate-fade-in-up">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">Traffic Forecasting Models</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-3xl">
+                        <div class="w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center text-purple-600">
+                            <i data-lucide="brain" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Transformers</h4>
+                            <p class="text-xs text-gray-500 mt-1">High-accuracy long-range dependency modeling for global traffic patterns.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-6 bg-white border border-gray-100 rounded-3xl">
+                        <div class="w-12 h-12 rounded-2xl bg-yellow-50 flex items-center justify-center text-yellow-600">
+                            <i data-lucide="activity" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">LSTM / RNN</h4>
+                            <p class="text-xs text-gray-500 mt-1">Efficient real-time sequential analysis for rapid fluctuation detection.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="pt-12 border-t border-gray-100">
+                <div class="flex justify-between items-center">
+                    <a href="../projects.html" class="flex items-center gap-2 text-sm font-bold text-purple-600">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        Back to Laboratory
+                    </a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
