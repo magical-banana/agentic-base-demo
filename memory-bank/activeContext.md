@@ -12,6 +12,7 @@
 - [UI] Switched typography to **Space Grotesk** for a modern tech feel.
 - [UI] Added magical transitions (peeling, floating, glowing).
 - [FEAT] Refocused content on CI/CD, Infrastructure as Code, Kubernetes, and AI Agents.
+- [FEAT] Added detailed project page for **Agentic CI/CD** in `src/agentic-cicd.html`.
 
 ## Immediate Next Steps
 1. Implement GitHub API integration to fetch real project data.
