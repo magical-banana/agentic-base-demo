@@ -22,3 +22,7 @@
 - NEVER remove the `memory-bank/` folder.
 - ALWAYS update `activeContext.md` after a successful build.
 - Follow "Atomic Commits" (one feature per PR).
+- When generating SVG or path data, avoid redundant coordinates. Use shorthand commands (H, V, Z) where possible.
+- If a code block becomes repetitive or exceeds 50 lines of similar data, use a comment like `` instead of continuing.
+- Never output the same coordinate or command sequence more than three times consecutively in a single path string.
+- If you notice a specific pattern (like L1200,300L1200,300), you can tell the API to stop immediately if it sees that specific string twice.
