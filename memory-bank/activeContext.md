@@ -1,19 +1,19 @@
 # Active Context
 
 ## Current Status
-- Pivoted project from a technical agent site to a premium artisan chocolate website: **Velvet Cacao**.
-- Updated design system to "Artisan Cacao" (dark cocoa, amber, serif typography).
-- Replaced project cards with chocolate collection cards.
+- Pivoted project to **Magical Banana** Portfolio & DevOps Showcase.
+- Deprecated the "Velvet Cacao" chocolate theme.
+- Updated design system to a vibrant, high-energy tech aesthetic (Vibrant Yellow, Magical Purple).
 
 ## Recent Changes
-- [PITCH] Re-branded site to "Velvet Cacao | Artisan Chocolatier".
-- [UI] Updated `index.html` and `src/collection.html` (renamed from `src/projects.html`) with premium chocolate-themed design.
-- [UI] Switched accent color from blue to amber/gold and background to dark cocoa.
-- [UI] Added Playfair Display serif font for headings.
-- [UI] Updated icons to food-related Lucide icons (cookie, coffee, flower, gem).
-- [FEAT] Updated content to reflect premium chocolate products with pricing.
+- [PIVOT] Rebranded site to "Magical Banana | DevOps & AI".
+- [UI] Updated `index.html` with new hero section, floating animations, and bright color palette.
+- [UI] Updated `src/projects.html` (renamed back from `collection.html`) with DevOps/AI project cards.
+- [UI] Switched typography to **Space Grotesk** for a modern tech feel.
+- [UI] Added magical transitions (peeling, floating, glowing).
+- [FEAT] Refocused content on CI/CD, Infrastructure as Code, Kubernetes, and AI Agents.
 
 ## Immediate Next Steps
-1. Implement light/dark/system theme toggle.
-2. Verify mobile responsiveness of the Collection grid.
-3. Implement a shopping cart or checkout flow modal.
+1. Implement GitHub API integration to fetch real project data.
+2. Add a terminal-style interactive bio component.
+3. Fine-tune "peeling" animations for project cards.

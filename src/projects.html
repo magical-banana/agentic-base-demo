@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Collection | Velvet Cacao</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <title>Magical Spells | DevOps & AI Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        body { font-family: 'Space Grotesk', sans-serif; }
         @keyframes fade-in-up {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -18,95 +17,86 @@
             opacity: 0;
             animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
+        .magical-gradient {
+            background: linear-gradient(135deg, #FDE047 0%, #A855F7 100%);
+        }
         .stagger-1 { animation-delay: 0.1s; }
         .stagger-2 { animation-delay: 0.2s; }
         .stagger-3 { animation-delay: 0.3s; }
-        .stagger-4 { animation-delay: 0.4s; }
-        .stagger-5 { animation-delay: 0.5s; }
     </style>
 </head>
-<body class="bg-[#0f0d0c] text-gray-200 min-h-screen selection:bg-amber-500/30">
-    <!-- Background Ambient Glow -->
+<body class="bg-gray-50 text-gray-900 min-h-screen selection:bg-purple-200">
+    <!-- Background sparkles -->
     <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div class="absolute -top-[10%] -left-[10%] w-[70%] h-[70%] rounded-full bg-amber-600/5 blur-[120px] animate-pulse"></div>
-        <div class="absolute -bottom-[10%] -right-[10%] w-[70%] h-[70%] rounded-full bg-orange-900/10 blur-[120px] animate-pulse" style="animation-delay: 3s;"></div>
+        <div class="absolute top-0 right-0 w-[50%] h-[50%] rounded-full bg-purple-500/5 blur-[120px]"></div>
     </div>
+
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 border-b border-[#2d2825] bg-[#0f0d0c]/80 backdrop-blur-md">
+    <nav class="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-md">
         <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <i data-lucide="gem" class="text-amber-500 w-8 h-8"></i>
-                <span class="font-bold tracking-tighter text-2xl text-white serif">VELVET_CACAO</span>
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 magical-gradient rounded-lg flex items-center justify-center text-white rotate-12">
+                    <i data-lucide="zap" class="w-5 h-5"></i>
+                </div>
+                <span class="font-bold tracking-tight text-xl">MAGICAL_BANANA</span>
             </div>
-            <div id="nav-links" class="flex gap-8 text-sm font-medium text-gray-400">
-                <a href="../index.html" class="hover:text-amber-500 transition-colors">Home</a>
-                <a href="collection.html" class="text-amber-500">Collection</a>
+            <div id="nav-links" class="flex gap-8 text-sm font-semibold text-gray-600">
+                <a href="../index.html" class="hover:text-purple-600 transition-colors">Home</a>
+                <a href="projects.html" class="text-purple-600">Projects</a>
             </div>
         </div>
     </nav>
 
     <main class="max-w-5xl mx-auto px-6 py-20">
-        <header class="mb-12 animate-fade-in-up">
-            <p class="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase mb-2 text-center md:text-left">Artisan Portfolio</p>
-            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight text-center md:text-left serif">Seasonal Masterpieces</h1>
+        <header class="mb-16 animate-fade-in-up">
+            <div class="inline-block px-3 py-1 bg-yellow-400 text-gray-900 text-[10px] font-bold uppercase tracking-[0.2em] rounded mb-4">Laboratory</div>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight">Coded Masterpieces</h1>
+            <p class="text-xl text-gray-500 mt-4 max-w-2xl">A collection of DevOps enchantments and AI-powered artifacts.</p>
         </header>
 
-        <!-- Collections Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Product Card 1 -->
-            <div class="group relative bg-[#1a1715] border border-[#2d2825] p-8 transition-all duration-500 hover:border-amber-500/50 hover:shadow-[0_0_40px_rgba(245,158,11,0.1)] hover:-translate-y-2 opacity-0 animate-fade-in-up stagger-1">
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Project Card 1 -->
+            <div class="group relative bg-white border-2 border-gray-100 p-8 rounded-[32px] transition-all duration-500 hover:border-purple-400 hover:shadow-2xl hover:-translate-y-2 opacity-0 animate-fade-in-up stagger-1">
                 <div class="flex justify-between items-start mb-8">
-                    <div class="p-4 bg-[#0f0d0c] border border-[#2d2825] text-amber-500 group-hover:border-amber-500/30 transition-colors">
-                        <i data-lucide="cookie" class="w-7 h-7"></i>
+                    <div class="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center text-purple-600 group-hover:bg-purple-50 transition-colors border border-gray-100">
+                        <i data-lucide="terminal" class="w-7 h-7"></i>
                     </div>
-                    <span class="font-mono text-[10px] text-[#5e544e] uppercase tracking-widest">LOT_01</span>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-amber-500 transition-colors tracking-tight">Midnight Truffle</h3>
-                <p class="text-gray-400 text-sm mb-10 leading-relaxed font-light">75% dark Ecuadorian cacao with a silk-smooth ganache heart and sea salt crystals.</p>
-                <div class="flex items-center justify-between">
                     <div class="flex gap-2">
-                        <span class="text-[10px] font-mono text-amber-400 border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 uppercase tracking-tighter">Dark</span>
-                        <span class="text-[10px] font-mono text-amber-400 border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 uppercase tracking-tighter">Ecuador</span>
+                        <span class="text-[10px] font-bold bg-gray-900 text-white px-2 py-1 rounded uppercase tracking-wider">K8S</span>
+                        <span class="text-[10px] font-bold bg-yellow-400 text-gray-900 px-2 py-1 rounded uppercase tracking-wider">IAC</span>
                     </div>
-                    <span class="text-white font-bold">$24.00</span>
+                </div>
+                <h3 class="text-2xl font-extrabold text-gray-900 mb-4 group-hover:text-purple-600 transition-colors">Nebula Automator</h3>
+                <p class="text-gray-500 leading-relaxed mb-8">Self-healing Kubernetes operator that dynamically scales clusters based on predictive AI traffic models.</p>
+                <div class="flex items-center justify-between border-t border-gray-50 pt-6">
+                    <span class="text-sm font-bold text-gray-400">#DevOps</span>
+                    <a href="#" class="text-purple-600 font-bold flex items-center gap-1 group/link">
+                        View Magic
+                        <i data-lucide="external-link" class="w-4 h-4 group-hover/link:translate-x-0.5 transition-transform"></i>
+                    </a>
                 </div>
             </div>
 
-            <!-- Product Card 2 -->
-            <div class="group relative bg-[#1a1715] border border-[#2d2825] p-8 transition-all duration-500 hover:border-amber-500/50 hover:shadow-[0_0_40px_rgba(245,158,11,0.1)] hover:-translate-y-2 opacity-0 animate-fade-in-up stagger-2">
+            <!-- Project Card 2 -->
+            <div class="group relative bg-white border-2 border-gray-100 p-8 rounded-[32px] transition-all duration-500 hover:border-yellow-400 hover:shadow-2xl hover:-translate-y-2 opacity-0 animate-fade-in-up stagger-2">
                 <div class="flex justify-between items-start mb-8">
-                    <div class="p-4 bg-[#0f0d0c] border border-[#2d2825] text-amber-500 group-hover:border-amber-500/30 transition-colors">
-                        <i data-lucide="coffee" class="w-7 h-7"></i>
+                    <div class="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center text-yellow-600 group-hover:bg-yellow-50 transition-colors border border-gray-100">
+                        <i data-lucide="brain-circuit" class="w-7 h-7"></i>
                     </div>
-                    <span class="font-mono text-[10px] text-[#5e544e] uppercase tracking-widest">LOT_02</span>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-amber-500 transition-colors tracking-tight">Arabica Gold</h3>
-                <p class="text-gray-400 text-sm mb-10 leading-relaxed font-light">Creamy milk chocolate infused with cold-brew Ethiopian coffee and edible gold leaf.</p>
-                <div class="flex items-center justify-between">
                     <div class="flex gap-2">
-                        <span class="text-[10px] font-mono text-amber-400 border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 uppercase tracking-tighter">Milk</span>
-                        <span class="text-[10px] font-mono text-amber-400 border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 uppercase tracking-tighter">Gold</span>
+                        <span class="text-[10px] font-bold bg-gray-900 text-white px-2 py-1 rounded uppercase tracking-wider">LLM</span>
+                        <span class="text-[10px] font-bold bg-purple-400 text-white px-2 py-1 rounded uppercase tracking-wider">API</span>
                     </div>
-                    <span class="text-white font-bold">$28.00</span>
                 </div>
-            </div>
-
-            <!-- Product Card 3 -->
-            <div class="group relative bg-[#1a1715] border border-[#2d2825] p-8 transition-all duration-500 hover:border-amber-500/50 hover:shadow-[0_0_40px_rgba(245,158,11,0.1)] hover:-translate-y-2 opacity-0 animate-fade-in-up stagger-3">
-                <div class="flex justify-between items-start mb-8">
-                    <div class="p-4 bg-[#0f0d0c] border border-[#2d2825] text-amber-500 group-hover:border-amber-500/30 transition-colors">
-                        <i data-lucide="flower" class="w-7 h-7"></i>
-                    </div>
-                    <span class="font-mono text-[10px] text-[#5e544e] uppercase tracking-widest">LOT_03</span>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-amber-500 transition-colors tracking-tight">Rose Pistachio</h3>
-                <p class="text-gray-400 text-sm mb-10 leading-relaxed font-light">White chocolate velvet base with crushed Persian pistachios and organic rose petals.</p>
-                <div class="flex items-center justify-between">
-                    <div class="flex gap-2">
-                        <span class="text-[10px] font-mono text-amber-400 border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 uppercase tracking-tighter">White</span>
-                        <span class="text-[10px] font-mono text-amber-400 border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 uppercase tracking-tighter">Flora</span>
-                    </div>
-                    <span class="text-white font-bold">$26.00</span>
+                <h3 class="text-2xl font-extrabold text-gray-900 mb-4 group-hover:text-yellow-600 transition-colors">Agentic CI/CD</h3>
+                <p class="text-gray-500 leading-relaxed mb-8">An autonomous AI agent that audits GitHub Pull Requests and suggests infrastructure optimizations in real-time.</p>
+                <div class="flex items-center justify-between border-t border-gray-50 pt-6">
+                    <span class="text-sm font-bold text-gray-400">#AI_Agents</span>
+                    <a href="#" class="text-yellow-600 font-bold flex items-center gap-1 group/link">
+                        View Magic
+                        <i data-lucide="external-link" class="w-4 h-4 group-hover/link:translate-x-0.5 transition-transform"></i>
+                    </a>
                 </div>
             </div>
         </div>
