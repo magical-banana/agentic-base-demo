@@ -76,6 +76,7 @@ jobs:
                 --read .agents/senior-developer.md \
                 --file memory-bank/activeContext.md \
                 --file memory-bank/architecture.md \
+                --file README.md \
                 --message "$USER_INPUT" \
                 --yes-always 2>&1 | tee aider_output.log
 
